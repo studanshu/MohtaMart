@@ -35,3 +35,4 @@ commit.sh
 *.njsproj
 *.sln
 *.sw?
+.vercel
