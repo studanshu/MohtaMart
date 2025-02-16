@@ -28,5 +28,4 @@ jobs:
 
       - name: Deploy to Vercel
         run: |
-          npx vercel link --token ${{ secrets.VERCEL_TOKEN }}
-          npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+          npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --force
