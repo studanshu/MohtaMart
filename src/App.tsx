@@ -4,7 +4,8 @@ import spices from './res/spices.png';
 import aata from './res/aata.png';
 import care from './res/care.png';
 import lentils from './res/lentils.png';
-import stationary from './res/stationary.png';
+import stationery from './res/stationery.png';
+import dairy from './res/dairy.png';
 
 function App() {
   const scrollCategories = (direction: 'left' | 'right') => {
@@ -171,9 +172,9 @@ function App() {
                 { name: 'Flours', image: aata },
                 { name: 'Personal Care', image: care },
                 { name: 'Lentils', image: lentils },
-                // { name: 'Beverages', image: 'https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' },
+                { name: 'Stationery', image: stationery },
                 { name: 'Snacks', image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' },
-                { name: 'Dairy Products', image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' }
+                { name: 'Dairy Products', image: dairy }
               ].map((category) => (
                 <div 
                   key={category.name} 
