@@ -1,4 +1,4 @@
-import { ShoppingBasket, Phone, Mail, MapPin, MessageCircleDashed as WhatsappIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MenuIcon, Phone, Mail, MapPin, MessageCircleDashed as WhatsappIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import icon from './res/icon.png';
 import spices from './res/spices.png';
 import aata from './res/aata.png';
@@ -6,14 +6,20 @@ import care from './res/care.png';
 import lentils from './res/lentils.png';
 import stationery from './res/stationery.png';
 import dairy from './res/dairy.png';
+import fresh from './res/fresh.png';
+
+import { useState } from 'react';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  
   const scrollCategories = (direction: 'left' | 'right') => {
     const container = document.getElementById('categories-container');
     if (container) {
       const scrollAmount = direction === 'left' ? -400 : 400;
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+    setMenuOpen(false);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -25,7 +31,9 @@ function App() {
         window.scrollTo({ top, behavior: 'smooth' });
       }
     }, 0);
+    setMenuOpen(false);
   };
+
 
   return (
     <div className="min-h-screen bg-biscuit-light">
@@ -42,6 +50,42 @@ function App() {
               <h1 className="text-2xl font-bold">Mohta Mart</h1>
               <p className="text-sm text-biscuit">Aapke Ghar ki Dukaan</p>
               </div>
+            </div>
+            <div className="md:hidden">
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="text-biscuit-light focus:outline-none focus:ring-2 focus:ring-biscuit focus:ring-opacity-50 rounded-lg p-2"
+              >
+                <MenuIcon className="w-6 h-6" fill="none"/>
+              </button>
+              {menuOpen && (
+                <div className="absolute top-16 right-0 w-48 bg-teak text-biscuit-light rounded-lg shadow-lg">
+                  <button
+                    onClick={() => scrollToSection('home')}
+                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                  >
+                    Home
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('about')}
+                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                  >
+                    About Us
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('categories')}
+                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                  >
+                    Categories
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                  >
+                    Contact
+                  </button>
+                </div>
+              )}
             </div>
             <nav className="hidden md:flex space-x-8">
               <button 
@@ -107,7 +151,7 @@ function App() {
             <div className="w-full md:w-1/2 md:pl-8">
               <h3 className="text-2xl font-semibold text-teak mb-4">Our History</h3>
               <p className="text-teak-dark text-lg leading-relaxed">
-                Founded in 1950, Mohta Mart began as a small family store with a vision to serve our community with quality groceries. Over three decades, we've grown into a trusted neighborhood destination while maintaining our family values and personal touch.
+                Founded in 1955, Mohta Mart began as a small family store with a vision to serve our community with quality groceries. Over three decades, we've grown into a trusted neighborhood destination while maintaining our family values and personal touch.
               </p>
             </div>
           </div>
@@ -121,7 +165,7 @@ function App() {
               </p>
             </div>
             <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pl-8 transition-transform duration-300 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+              <img src={fresh} 
                    alt="Our Promise" 
                    className="rounded-lg shadow-lg w-full h-[400px] object-cover transition-shadow duration-300 hover:shadow-xl"/>
             </div>
