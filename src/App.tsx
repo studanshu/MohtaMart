@@ -62,25 +62,25 @@ function App() {
                 <div className="absolute top-16 right-0 w-48 bg-teak text-biscuit-light rounded-lg shadow-lg">
                   <button
                     onClick={() => scrollToSection('home')}
-                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                    className="block w-full text-left px-4 py-4 hover:bg-teak-dark"
                   >
                     Home
                   </button>
                   <button
                     onClick={() => scrollToSection('about')}
-                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                    className="block w-full text-left px-4 py-4 hover:bg-teak-dark"
                   >
                     About Us
                   </button>
                   <button
                     onClick={() => scrollToSection('categories')}
-                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                    className="block w-full text-left px-4 py-4 hover:bg-teak-dark"
                   >
                     Categories
                   </button>
                   <button
                     onClick={() => scrollToSection('contact')}
-                    className="block w-full text-left px-4 py-2 hover:bg-teak-dark"
+                    className="block w-full text-left px-4 py-4 hover:bg-teak-dark"
                   >
                     Contact
                   </button>
@@ -269,7 +269,7 @@ function App() {
 
       {/* WhatsApp CTA */}
       <a
-        href="https://wa.me/919330175013"
+        href="https://wa.me/918334869990"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
