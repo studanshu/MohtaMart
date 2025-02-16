@@ -1,0 +1,32 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Updated to latest version
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4  # Updated to latest version
+        with:
+          node-version: "18"  # Vite works best with Node 18+
+
+      - name: Install dependencies
+        run: npm install --frozen-lockfile  # Ensures consistency
+
+      - name: Build the Vite app
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to Vercel
+        run: |
+          npx vercel link --token ${{ secrets.VERCEL_TOKEN }}
+          npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
